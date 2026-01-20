@@ -35,17 +35,59 @@
     url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.ttf")format("truetype"),
     url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.svg#Orpheus Pro")format("svg");
 }
-/*
-a {
-    background: none !important;
-    text-decoration: none !important;
-}
 
 /* Disable dark mode entirely */
-:root {
-  color-scheme: light;
+
+/* HARD STOP to browser font manipulation */
+html, body {
+  background-color: #fffff8;
+  
+
+  /* Kill fake bolding & synthesis */
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Prevent Chrome text re-weighting */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
+/* Completely neutralize Tufte link styling */
+/* a {
+  font-family: inherit !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  background-image: none !important;
+  text-shadow: none !important;
+  text-decoration-line: underline;
+} */
+
+body {
+  font-weight: 400;
+}
+
+a {
+  font-weight: 400 !important;
+  font-style: normal;
+  text-decoration-thickness: from-font;
+}
+
+/* Header + navigation links */
+.site-title a,
+.site-nav a,
+.center-links a {
+  font-family: "Orpheus Pro", serif;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em;
+  font-weight: normal !important;
+  font-style: normal !important;
+  text-shadow: none !important;
+}
+
+strong, b {
+  font-weight: 600;
+}
 /* Centered image block */
 .center-image-wrapper {
     display: flex;
@@ -306,3 +348,13 @@ nav a:hover {
 
 }
 
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #fffff8 !important;
+    color: #111 !important;
+  }
+
+  * {
+    font-synthesis: none !important;
+  }
+}
